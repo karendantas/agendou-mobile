@@ -1,6 +1,6 @@
 import { useFonts } from 'expo-font';
 import {Inter_400Regular, Inter_500Medium, Inter_600SemiBold, Inter_700Bold} from '@expo-google-fonts/inter'
-import { Stack } from 'expo-router';
+import { Stack, Tabs } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { useEffect } from 'react';
 import 'react-native-reanimated';
@@ -45,7 +45,7 @@ function RootLayoutNav() {
 
     <Stack screenOptions = {{headerShown:false}}>
       <Stack.Protected guard={isAuth}>
-        <Stack.Screen name='(private)' />
+        <Stack.Screen name='(private)'  />
       </Stack.Protected>
      
      <Stack.Protected guard={!isAuth}>
