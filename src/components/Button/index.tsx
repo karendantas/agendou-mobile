@@ -9,6 +9,7 @@ interface ButtonProps extends TouchableOpacityProps{
   iconPosition?: "left" | "right";
   disabled?: boolean,
   width?: DimensionValue
+  variant?: "primary" | "secondary"
 };
 
 export function Button({
@@ -17,12 +18,13 @@ export function Button({
   iconPosition = "left",
   disabled = false,
   width,
+  variant = "primary",
   ...rest
   
 }: ButtonProps) {
   return (
     <TouchableOpacity
-      style={[styles.button, disabled && styles.disabled, {width}]}
+      style={[styles.button, disabled && styles.disabled, {width}, styles[variant]]}
       activeOpacity={0.7}
       {...rest}
     >

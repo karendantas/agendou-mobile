@@ -1,0 +1,28 @@
+{
+  "appointments": [
+    {
+      "id": 1,
+      "customer": "karen",
+      "date": "2025-09-11",
+      "service": "cabelo",
+      "status": "agendado",
+      "time": "12:00"
+    },
+    {
+      "id": 2,
+      "customer": "ana",
+      "date": "2025-09-11",
+      "service": "cabelo",
+      "status": "agendado",
+      "time": "12:00"
+    },
+    {
+      "id": 3,
+      "customer": "joão",
+      "date": "2025-09-12",
+      "service": "barba",
+      "status": "agendado",
+      "time": "14:00"
+    }
+  ]
+}

@@ -3,11 +3,16 @@ import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
   button: {
-    backgroundColor: theme.primary,
     paddingVertical: 12,
     paddingHorizontal: 16,
     borderRadius: 12,
     alignItems: "center",
+  },
+  primary: {
+    backgroundColor: theme.primary,
+  },
+  secondary: {
+    backgroundColor: theme.error,
   },
   disabled: {
     opacity: 0.5,

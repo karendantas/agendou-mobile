@@ -8,12 +8,19 @@ export default function Layout() {
             headerShown: false,
             tabBarActiveTintColor: theme.primary
         }}>
-            <Tabs.Screen name = "index" 
+            <Tabs.Screen 
+                name = "index" 
                 options={{
                     title: "Home",
                     tabBarIcon: ({color}) => (
                     <AntDesign name="home" color={color} size={25}/>
                     )
+                }}
+            />
+             <Tabs.Screen 
+                name = "schedule/[id]" 
+                options={{
+                    href: null
                 }}
             />
         </Tabs>
