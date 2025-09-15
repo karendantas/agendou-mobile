@@ -1,5 +1,5 @@
 export type schedule = {
-    id: number,
+    id: string,
     customer: string
     service: string
     date: string,

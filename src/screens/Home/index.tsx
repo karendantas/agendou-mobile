@@ -8,7 +8,7 @@ import { ScrollView, SectionList, Text, View } from "react-native";
 import { ScheduleModal } from "../CreateSchedule";
 import { Link } from "expo-router";
 import { theme } from "@/src/theme/theme";
-import { getSchedules } from "@/src/api/queries";
+import { addSchedule, getSchedules } from "@/src/api/queries";
 
 export function Home () {
     const [openCreateScheduleModal, setOpenCreateScheduleModal] = useState(false)
@@ -21,16 +21,10 @@ export function Home () {
 
     useEffect(() => {
         loadSchedules()
-    }, [])
+    }, [customersScheduled])
 
-    function handleCreateNewSchedule(scheduleDate: string, newSchedule: schedule){
-        setCustomersScheduled( prevSchedule => 
-            prevSchedule.map((schedule) => 
-               schedule.title === scheduleDate
-                ? {...schedule, data: [...schedule.data, newSchedule]}
-                : schedule
-            )
-        )
+    async function handleCreateNewSchedule(newSchedule: schedule){
+        await addSchedule(newSchedule)
     }
     
 
@@ -81,7 +75,7 @@ export function Home () {
            <ScheduleModal 
                 visible = {openCreateScheduleModal} 
                 onClose={() => setOpenCreateScheduleModal(false)}
-                onSave={(newSchedule) => handleCreateNewSchedule(newSchedule.date, newSchedule)}
+                onSave={(newSchedule) => handleCreateNewSchedule(newSchedule)}
             />
         </View>
     )

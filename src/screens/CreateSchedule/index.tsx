@@ -9,10 +9,10 @@ import { styles } from "./styles";
 import { Input } from "@/src/components/Input";
 import { schedule } from "@/src/@types/schedule";
 
-
-
 import { Button } from "@/src/components/Button";
 import { Calendar } from "@/src/components/Calendar";
+
+import uuid from "react-native-uuid"
 
 interface ScheduleModalProps {
   visible: boolean;
@@ -28,7 +28,7 @@ export function ScheduleModal({ visible, onClose, onSave }: ScheduleModalProps) 
 
   const handleSave = () => {
     if (!customer || !service || !date || !time) return;
-    onSave({ id: 3, customer, service, date, time, status: "agendado" });
+    onSave({ id: uuid.v4(), customer, service, date, time, status: "agendado" });
     setCustomer("");
     setService("");
     setDate("");
