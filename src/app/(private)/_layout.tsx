@@ -17,6 +17,15 @@ export default function Layout() {
                     )
                 }}
             />
+              <Tabs.Screen 
+                name = "calendar" 
+                options={{
+                    title: "Calendário",
+                    tabBarIcon: ({color}) => (
+                    <AntDesign name="calendar" color={color} size={25}/>
+                    )
+                }}
+            />
              <Tabs.Screen 
                 name = "schedule/[id]" 
                 options={{

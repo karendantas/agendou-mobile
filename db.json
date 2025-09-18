@@ -2,43 +2,35 @@
   "appointments": [
     {
       "id": "1",
-      "customer": "karen",
+      "customer": "karennn",
       "date": "2025-09-11",
       "service": "cabelo",
-      "status": "agendado",
-      "time": "12:00"
-    },
-    {
-      "id": "2",
-      "customer": "ana",
-      "date": "2025-09-11",
-      "service": "cabelo",
-      "status": "agendado",
+      "status": "cancelado",
       "time": "12:00"
     },
     {
       "id": "3",
       "customer": "joão",
-      "date": "2025-09-12",
+      "date": "2025-09-15",
       "service": "barba",
-      "status": "agendado",
+      "status": "concluído",
       "time": "14:00"
     },
     {
       "id": "e1b17d27-82b2-4d26-9df9-2f43447ded77",
-      "customer": "Testrr",
+      "customer": "Testreryyyyugg",
       "service": "Testeee",
       "date": "2025-09-16",
       "time": "13:30",
       "status": "agendado"
     },
     {
-      "id": "258d94ed-d8c0-468b-b3c6-d754a42ad4ee",
-      "customer": "Heheh",
-      "service": "Heheh",
-      "date": "2025-09-16",
+      "id": "d6231615-8b72-4a97-928c-6266b92db952",
+      "customer": "Ana beatriz",
+      "service": "Unhas",
+      "date": "2025-09-22",
       "time": "13:30",
-      "status": "agendado"
+      "status": "concluído"
     }
   ]
 }

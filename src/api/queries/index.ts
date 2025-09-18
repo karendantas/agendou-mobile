@@ -23,3 +23,16 @@ export async function getSchedules(): Promise<scheduleSection[]>{
 export async function addSchedule(data: schedule){
     await api.post('/appointments', data)
 }
+
+export async function getSchedule(scheduleId: string): Promise<schedule>{
+    const {data} = await api.get(`/appointments/${scheduleId}`)
+    return data
+}
+
+export async function updateSchedule(scheduleId: string, data: schedule){
+    await api.patch(`/appointments/${scheduleId}`, data)
+}
+
+export async function deleteSchedule(scheduleId:string){
+    await api.delete(`/appointments/${scheduleId}`)
+}

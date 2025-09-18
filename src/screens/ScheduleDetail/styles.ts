@@ -4,6 +4,7 @@ export const styles = StyleSheet.create({
   container: {
     gap: 8,
     padding: 20,
+    marginTop: 50,
   },
   title: {
     fontSize: 18,
@@ -16,9 +17,7 @@ export const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: "#ddd",
     borderRadius: 8,
-    padding: 10,
-    marginBottom: 12,
-    fontSize: 14,
+    backgroundColor: "#ffffff"
   },
   actions: {
     flexDirection: "row",

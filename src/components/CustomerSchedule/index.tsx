@@ -2,7 +2,7 @@ import { schedule } from "@/src/@types/schedule";
 import { Text, View } from "react-native";
 import { styles } from "./styles";
 
-export function CustomerSchedule ({ customer, date, service, time, status="agendado"}: schedule) {
+export function CustomerSchedule ({ customer, service, time, status="agendado"}: schedule) {
     const statusColors: Record<string, string> = {
         agendado: "#4CAF50", 
         cancelado: "#F44336", 
@@ -25,7 +25,7 @@ export function CustomerSchedule ({ customer, date, service, time, status="agend
 
             <Text style={styles.service}>{service}</Text>
             <Text style={styles.date}>
-                {date} às {time}
+                Horário: {time}
             </Text>
         </View>
     )

@@ -1,6 +1,9 @@
 import { useState } from "react";
 import {
+  KeyboardAvoidingView,
   Modal,
+  Platform,
+  ScrollView,
   Text,
   TouchableOpacity,
   View,
@@ -39,37 +42,43 @@ export function ScheduleModal({ visible, onClose, onSave }: ScheduleModalProps) 
   return (
     <Modal visible={visible} transparent animationType="slide">
       <View style={styles.overlay}>
-        <View style={styles.modal}>
-          <Text style={styles.title}>Novo Agendamento</Text>
+      
+          <ScrollView contentContainerStyle={{ flexGrow: 1 }}
+            style = {{width: "100%"}}
+          >
+            <View style={styles.modal}>
+              <Text style={styles.title}>Novo Agendamento</Text>
 
-            <Input
-                placeholder="Nome do Cliente"
-                value={customer}
-                onChangeText={setCustomer}
-            />
+                <Input
+                    placeholder="Nome do Cliente"
+                    value={customer}
+                    onChangeText={setCustomer}
+                />
 
-            <Input
-                placeholder="Serviço"
-                value={service}
-                onChangeText={setService}
-            />
+                <Input
+                    placeholder="Serviço"
+                    value={service}
+                    onChangeText={setService}
+                />
 
-            <Calendar
-                onDayPress={(date) => setDate(date.dateString) }
-                markedDates={{[date]: {selected: true, disableTouchEvent: true}}}
-            />
-            <Input
-                placeholder="Hora (HH:mm)"
-                value={time}
-                onChangeText={setTime}
-            />
-       
-          <View style={styles.actions}>
-            <Button title = "Cancelar" onPress={onClose} variant="secondary"/>
-           
-            <Button title = "Confirmar" onPress={handleSave}/>
-          </View>
-        </View>
+                <Calendar
+                    onDayPress={(date) => setDate(date.dateString) }
+                    markedDates={{[date]: {selected: true, disableTouchEvent: true}}}
+                />
+                <Input
+                    placeholder="Hora (HH:mm)"
+                    value={time}
+                    onChangeText={setTime}
+                />
+          
+              <View style={styles.actions}>
+                <Button title = "Cancelar" onPress={onClose} variant="secondary"/>
+              
+                <Button title = "Confirmar" onPress={handleSave}/>
+              </View>
+            </View>
+          </ScrollView>
+
       </View>
     </Modal>
   );

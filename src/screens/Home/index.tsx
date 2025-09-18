@@ -9,6 +9,7 @@ import { ScheduleModal } from "../CreateSchedule";
 import { Link } from "expo-router";
 import { theme } from "@/src/theme/theme";
 import { addSchedule, getSchedules } from "@/src/api/queries";
+import { formatDate } from "@/src/utils/dateFomat";
 
 export function Home () {
     const [openCreateScheduleModal, setOpenCreateScheduleModal] = useState(false)
@@ -46,7 +47,7 @@ export function Home () {
             
                 <SectionList
                     sections={customersScheduled} 
-                    keyExtractor={(item, index) => item.time + index}
+                    keyExtractor={(item) => item.id}
                         renderItem={({item}) => (
                             <Link href={`/(private)/schedule/${item.id}` as any} style= {{marginBottom:12}}>
                             
@@ -61,12 +62,23 @@ export function Home () {
                             </Link>
                         )}
                         renderSectionHeader={({section: {title}}) => (
-                        <Text style = {{fontSize: 20, fontWeight: 700, color: theme.secondary}}>{title}</Text>
+                        <Text style = {{fontSize: 20, fontWeight: 700, color: theme.secondary, marginBottom: 12}}>{formatDate(title)}</Text>
                         )}
                     contentContainerStyle = {{
-                        paddingBottom: 70
+                        paddingBottom: 100,
+                        marginTop: 12,
+
                     }}
                     showsVerticalScrollIndicator = {false}
+                    ListEmptyComponent={(
+                        <View style = {{ 
+                            justifyContent: "center", 
+                            alignItems: "center",
+                            height: 100
+                        }}>
+                            <Text>Você ainda não tem agendamentos</Text>
+                        </View>
+                    )}
                 />
           
                         
