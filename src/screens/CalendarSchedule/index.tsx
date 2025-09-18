@@ -33,7 +33,7 @@ export function CalendarSchedule () {
     }, [customersScheduled])
     return (
         <View style = {styles.container}>
-            <Text>Seus agendamentos no calendário!</Text>
+            <Text style = {styles.title}>Seus agendamentos no calendário!</Text>
             <Calendar 
                 markedDates={markedDates}
             />

@@ -14,6 +14,7 @@ export const styles = StyleSheet.create({
     backgroundColor: "#fff",
     borderRadius: 12,
     padding: 20,
+    marginTop: 30,
     elevation: 5,
   },
   title: {

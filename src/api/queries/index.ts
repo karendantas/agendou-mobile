@@ -1,5 +1,7 @@
 import { schedule, scheduleSection } from "@/src/@types/schedule";
 import { api } from "..";
+import { ErrorMessage } from "@/src/utils/errorMessage";
+import { Alert } from "react-native";
 
 export async function getSchedules(): Promise<scheduleSection[]>{
     const {data} = await api.get<schedule[]>('/appointments')
@@ -21,18 +23,38 @@ export async function getSchedules(): Promise<scheduleSection[]>{
 }
 
 export async function addSchedule(data: schedule){
-    await api.post('/appointments', data)
+    try {
+        await api.post('/appointments', data)
+    } catch (error) {
+        const message = ErrorMessage(error)
+        Alert.alert("Erro", message)
+    }
 }
 
-export async function getSchedule(scheduleId: string): Promise<schedule>{
-    const {data} = await api.get(`/appointments/${scheduleId}`)
-    return data
+export async function getSchedule(scheduleId: string){
+    try {
+        const {data} = await api.get(`/appointments/${scheduleId}`)
+        return data
+    } catch (error) {
+        const message = ErrorMessage(error)
+        Alert.alert("Erro", message)
+    }
 }
 
 export async function updateSchedule(scheduleId: string, data: schedule){
-    await api.patch(`/appointments/${scheduleId}`, data)
+    try {
+        await api.patch(`/appointments/${scheduleId}`, data)
+    } catch (error) {
+        const message = ErrorMessage(error)
+        Alert.alert("Erro", message)
+    }
 }
 
 export async function deleteSchedule(scheduleId:string){
-    await api.delete(`/appointments/${scheduleId}`)
+    try {
+        await api.delete(`/appointments/${scheduleId}`)
+    } catch (error) {
+        const message = ErrorMessage(error)
+        Alert.alert("Erro", message)
+    }
 }

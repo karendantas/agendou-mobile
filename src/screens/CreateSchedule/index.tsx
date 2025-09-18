@@ -1,5 +1,6 @@
 import { useState } from "react";
 import {
+  Alert,
   KeyboardAvoidingView,
   Modal,
   Platform,
@@ -30,7 +31,9 @@ export function ScheduleModal({ visible, onClose, onSave }: ScheduleModalProps) 
   const [time, setTime] = useState("");
 
   const handleSave = () => {
-    if (!customer || !service || !date || !time) return;
+    if (!customer || !service || !date || !time) return (
+      Alert.alert("Aviso", "Campos não podem estar vazios!")
+    )
     onSave({ id: uuid.v4(), customer, service, date, time, status: "agendado" });
     setCustomer("");
     setService("");
